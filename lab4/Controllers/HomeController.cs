@@ -14,7 +14,7 @@ namespace lab4.Controllers
         public ActionResult Index()
         {
             BigSchoolContext context = new BigSchoolContext();
-            var upcomingCourse = context.Courses.Where(p => p.Datetime < DateTime.Now).OrderBy(p => p.Datetime).ToList();
+            var upcomingCourse = context.Courses.Where(p => p.Datetime > DateTime.Now).OrderBy(p => p.Datetime).ToList();
             foreach(Course i in upcomingCourse)
             {
                 ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(i.LecturerId);

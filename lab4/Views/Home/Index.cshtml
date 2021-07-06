@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<lab4.Models.Course>
+
 @{
     ViewBag.Title = "Home Page";
 }
@@ -8,7 +9,7 @@
         @foreach(var course in Model)
         {
             <li>
-                @course.DateTime.ToString("dd/MM/yyyy HH:mm") - @course.Name
+                @course.Datetime.ToString("dd/MM/yyyy HH:mm") - @course.Name
             </li>
         }
     </ul>
