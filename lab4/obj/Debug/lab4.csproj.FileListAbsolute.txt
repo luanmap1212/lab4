@@ -78,7 +78,6 @@ D:\Web\lab4\lab4\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Web\lab4\lab4\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Web\lab4\lab4\bin\Microsoft.Owin.Security.OAuth.xml
 D:\Web\lab4\lab4\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Web\lab4\lab4\obj\Debug\lab4.csproj.AssemblyReference.cache
 D:\Web\lab4\lab4\obj\Debug\lab4.csproj.CoreCompileInputs.cache
 D:\Web\lab4\lab4\obj\Debug\lab4.csproj.CopyComplete
 D:\Web\lab4\lab4\obj\Debug\lab4.dll
