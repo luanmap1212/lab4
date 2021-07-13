@@ -1,0 +1,38 @@
+﻿@model IEnumerable<lab4.Models.Course>
+
+@{
+    ViewBag.Title = "Mine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mine</h2>
+<div class="row">
+    <ul>
+        @foreach (var course in Model)
+        {
+            <li>
+                <div class="date">
+                    <div class="month">
+                        @course.Datetime.ToString("MM")
+                    </div>
+                    <div class="month">
+                        @course.Datetime.ToString("dd")
+                    </div>
+                </div>
+
+                <div class="details">
+                    <span class="lecture">
+                        @course.LectureName
+                    </span>
+                    <span class="category">
+                        @course.Category.Name
+                    </span>
+                </div>
+                <div class="action">
+                    <a href="#">Edit</a>
+                    <a href="#">Delete</a>
+                </div>
+            </li>
+        }
+    </ul>
+</div>

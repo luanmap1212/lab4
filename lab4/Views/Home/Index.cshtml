@@ -9,8 +9,44 @@
         @foreach(var course in Model)
         {
             <li>
-                @course.Datetime.ToString("dd/MM/yyyy HH:mm") - @course.Name
+                <div class="date">
+                    <div class="month">
+                        @course.Datetime.ToString("MM")
+                    </div>
+                    <div class="month">
+                        @course.Datetime.ToString("dd")
+                    </div>
+                </div>
+
+                <div class="details">
+                    <span class="lecture">
+                        @course.Name
+                    </span>
+                    <span class="category">
+                        @course.Category.Name
+                    </span>
+                    <span data-course-id="@course.Id" class="btn btn-default btn-sm js-tongle-attendance">Going?</span>
+                </div>
             </li>
         }
     </ul>
+
+    @section scripts {
+        <script>
+            $(document).ready(function () {
+                $(".js-tongle-attendance").click(function (e) {
+                    var button = $(e.target);
+                    $.post("/api/attendances", { Id: button.attr("data-course-id") })
+                        .done(function () {
+                            alert("Register course sucessfully!")
+                            button
+                                .removeClass("btn-default")
+                                .addClass("btn-info")
+                                .text("Going")
+                        }).fail(function () {
+                            alert("Something fail")
+                        })
+                })
+            })
+        </script>}
 </div>
