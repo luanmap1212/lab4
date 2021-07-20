@@ -13,10 +13,11 @@
                     <div class="month">
                         @course.Datetime.ToString("MM")
                     </div>
-                    <div class="month">
+                    <div class="day">
                         @course.Datetime.ToString("dd")
                     </div>
                 </div>
+
                 <div class="details">
                     <span class="lecture">
                         @course.Name  
@@ -24,11 +25,11 @@
                         {
                             if (course.isShowFollow)
                             {
-                                <button data-course-id="@course.LecturerId" class="btn btn-default btn-sm js-tongle-follow">Follow</button>
+                                <button data-user-id="@course.LecturerId" class="btn btn-default btn-sm js-tongle-follow">Follow</button>
                             }
                             else
                             {
-                                <button data-course-id="@course.LecturerId" class="btn btn-success btn-sm js-tongle-follow">Following</button>
+                                <button data-user-id="@course.LecturerId" class="btn btn-success btn-sm js-tongle-follow">Following</button>
                             }
                         }
                     </span>
@@ -40,11 +41,11 @@
                         {
                             if (course.isShowGoing)
                             {
-                                <button data-course-id="@course.LecturerId" class="btn btn-default btn-sm js-tongle-attendance">Going?</button>
+                                <button data-course-id="@course.Id" class="btn btn-default btn-sm js-tongle-attendance">Going?</button>
                             }
                             else
                             {
-                                <button data-course-id="@course.LecturerId" class="btn btn-info btn-sm js-tongle-attendance">Going</button>
+                                <button data-course-id="@course.Id" class="btn btn-info btn-sm js-tongle-attendance">Going</button>
                             }
                         }
                     </span>
@@ -78,9 +79,10 @@
                         });
                 });
 
-                $(".js-tong-le-follow").click(function (e) {
+                $(".js-tongle-follow").click(function (e) {
                     var button = $(e.target);
-                    $.post("/api/following", { FolloweeID: button.attr("data-user-id") })
+                    var followee = button.attr("data-user-id");
+                    $.post("/api/follow", { FolloweeID: button.attr("data-user-id") })
                         .done(function (result) {
                             if (result == "cancel") {
                                 $('.js-tongle-follow').each(function (i, obj) {
