@@ -14,13 +14,31 @@ namespace lab4.Controllers
         public ActionResult Index()
         {
             BigSchoolContext context = new BigSchoolContext();
-            var upcomingCourse = context.Courses.Where(p => p.Datetime > DateTime.Now).OrderBy(p => p.Datetime).ToList();
-            foreach(Course i in upcomingCourse)
+            var upcommingCourse = context.Courses.Where(p => p.Datetime > DateTime.Now).OrderBy(p => p.Datetime).ToList();
+            //lấy user login hiện tại 
+            var userID = User.Identity.GetUserId();
+            foreach (Course i in upcommingCourse)
             {
-                ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(i.LecturerId);
+                //tìm Name của user từ lectureid
+                ApplicationUser user =
+                System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>(
+                ).FindById(i.LecturerId);
                 i.Name = user.Name;
+                //lấy ds tham gia khóa học 
+                if (userID != null)
+                {
+                    i.isLogin = true;
+                    //ktra user đó chưa tham gia khóa học 
+                    Attendance find = context.Attendances.FirstOrDefault(p => p.CourseId == i.Id && p.Attendee == userID);
+                    if (find == null)
+                        i.isShowGoing = true;
+                    //ktra user đã theo dõi giảng viên của khóa học ? 
+                    Following findFollow = context.Followings.FirstOrDefault(p => p.FollowerID == userID && p.FolloweeID == i.LecturerId);
+                    if (findFollow == null)
+                        i.isShowFollow = true;
+                }
             }
-            return View(upcomingCourse);
+            return View(upcommingCourse);
         }
 
         public ActionResult About()

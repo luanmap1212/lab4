@@ -88,3 +88,4 @@ D:\Web\lab4\lab4\bin\System.Web.Http.WebHost.dll
 D:\Web\lab4\lab4\bin\System.Net.Http.Formatting.xml
 D:\Web\lab4\lab4\bin\System.Web.Http.xml
 D:\Web\lab4\lab4\bin\System.Web.Http.WebHost.xml
+D:\Web\lab4\lab4\obj\Debug\lab4.csproj.AssemblyReference.cache
