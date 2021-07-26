@@ -87,7 +87,7 @@
                             if (result == "cancel") {
                                 $('.js-tongle-follow').each(function (i, obj) {
                                     if ($(this)
-                                        .attr("data-user-id") == followee) {
+                                            .attr("data-user-id") == followee) {
                                         $(this)
                                             .removeClass("btn-success")
                                             .addClass("btn-default")
@@ -97,8 +97,10 @@
                                 alert("unFollow sucessfully")
                             } else {
                                 $('.js-tongle-follow').each(function (i, obj) {
-                                    if ($(this).attr('data-user-id') == followee) {
-                                        $(this).removeClass("btn-default")
+                                    if ($(this)
+                                            .attr('data-user-id') == followee) {
+                                        $(this)
+                                            .removeClass("btn-default")
                                             .addClass("btn-success")
                                             .text("Following");
                                     }
