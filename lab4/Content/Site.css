@@ -24,8 +24,8 @@ textarea {
 }
 
 .navbar-inverse {
-    background-color: #d41d50;
-    border-color: #fbf6f6;
+    background-color: green;
+    border-color: yellow;
 }
 .navbar-inverse .navbar-nav > li > a {
     color: white;
@@ -41,20 +41,20 @@ textarea {
     position: relative;
     margin-bottom: 30px;
 }
-.course >li .date {
-    text-align:center;
-    background-color:#d41d50;
-    color:white;
-    width:60px;
-    border-radius:8px;
-}
+    .course > li .date {
+        text-align: center;
+        background-color: #fb0247;
+        color: white;
+        width: 60px;
+        border-radius: 8px;
+    }
 .course > li .details {
     position:absolute;
     top:0;
     left:70px;
 }
 .course > li .leture {
-
+    
 }
 .course > li .category {
 

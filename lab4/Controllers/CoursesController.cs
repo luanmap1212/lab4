@@ -35,7 +35,8 @@ namespace lab4.Controllers
                 return View("Create", objCourse);
             }
 
-            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>()
+                .FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
             objCourse.LecturerId = user.Id;
 
             context.Courses.Add(objCourse);

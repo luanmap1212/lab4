@@ -18,10 +18,17 @@
                     <div class="day">
                         @course.Datetime.ToString("dd")
                     </div>
+                    <div class="year">
+                        @course.Datetime.ToString("yyyy")
+                    </div>
                 </div>
+
                 <div class="details">
                     <span class="lecture">@course.LectureName</span>
                     <br />
+                    <span class="category" style="color:blue">
+                        @course.Place
+                    </span>
                     <span class="category">@course.Category.Name</span>
                 </div>
             </li>
